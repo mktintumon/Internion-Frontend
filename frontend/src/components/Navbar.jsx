@@ -4,23 +4,26 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
- 
+
 export default function Navbar() {
-  const [isAdmin, setIsAdmin] = useState(localStorage.getItem("admin") === "true");
- 
+  const [isAdmin, setIsAdmin] = useState(
+    localStorage.getItem("admin") === "true"
+  );
+
   const navigateTo = useNavigate();
+  const location = useLocation();
   const [isloggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("userId") != null
   );
- 
+
   const logout = () => {
     localStorage.clear();
     navigateTo("/login");
     window.location.reload();
   };
- 
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ backgroundColor: "#5c6bc0" }}>
@@ -39,12 +42,12 @@ export default function Navbar() {
               ></img>
             </Button>
           </Typography>
-          {isloggedIn && (
+          {isloggedIn && location.pathname !== "/login" && (
             <Button color="inherit" onClick={() => navigateTo("/home")}>
               FILL FORM
             </Button>
           )}
-          {isloggedIn && (
+          {isloggedIn && location.pathname !== "/login" && (
             <>
               {isAdmin ? (
                 <>
@@ -65,19 +68,22 @@ export default function Navbar() {
               )}
             </>
           )}
-          <></>
-          &nbsp;&nbsp;
-          {isloggedIn ? (
+          {location.pathname !== "/login" && (
             <>
-              <Button color="inherit" onClick={logout}>
-                LOGOUT
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button color="inherit" onClick={() => navigateTo("/login")}>
-                Login / Register
-              </Button>
+              &nbsp;&nbsp;
+              {isloggedIn ? (
+                <>
+                  <Button color="inherit" onClick={logout}>
+                    LOGOUT
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button color="inherit" onClick={() => navigateTo("/login")}>
+                    Login / Register
+                  </Button>
+                </>
+              )}
             </>
           )}
         </Toolbar>
