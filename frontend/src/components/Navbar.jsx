@@ -42,7 +42,7 @@ export default function Navbar() {
               ></img>
             </Button>
           </Typography>
-          {isloggedIn && location.pathname !== "/login" && (
+          {isloggedIn && location.pathname !== "/login" && location.pathname !== "/home" && (
             <Button color="inherit" onClick={() => navigateTo("/home")}>
               FILL FORM
             </Button>
@@ -59,6 +59,7 @@ export default function Navbar() {
                 <>
                   <Button
                     color="inherit"
+                    style={{marginLeft:"1rem"}}
                     onClick={() => navigateTo("/userConsole")}
                   >
                     {" "}
@@ -73,7 +74,7 @@ export default function Navbar() {
               &nbsp;&nbsp;
               {isloggedIn ? (
                 <>
-                  <Button color="inherit" onClick={logout}>
+                  <Button color="inherit" onClick={logout} style={{marginRight:"5rem", marginLeft:"2rem"}}>
                     LOGOUT
                   </Button>
                 </>

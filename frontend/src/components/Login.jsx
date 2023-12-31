@@ -68,7 +68,6 @@ const Login = () => {
 
       if (response.data == "success") {
         handleToggle();
-
         setEmail("");
         setPassword("");
         alert("Check your mail for verification Link");

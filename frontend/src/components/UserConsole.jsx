@@ -16,7 +16,7 @@ function UserConsole() {
   const [showModal, setShowModal] = useState(false);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [requestMssg , setRequestMssg] = useState("REQUEST PERMISSION")
+
 
   const emailData = localStorage.getItem("userEmail");
   const email = emailData.substring(1, emailData.length - 1);
@@ -144,8 +144,6 @@ function UserConsole() {
               upload={upload}
               loading={loading}
               setLoading={setLoading}
-              requestMssg={requestMssg}
-              setRequestMssg={setRequestMssg}
             />
           );
         })}
@@ -167,9 +165,9 @@ const Box = ({
   upload,
   loading,
   setLoading,
-  requestMssg,
-  setRequestMssg
 }) => {
+
+  
 
   const request = async () => {
     setLoading(true);
@@ -178,9 +176,11 @@ const Box = ({
       sender: username,
       filename: filename,
     });
+    
     setLoading(false);
-    setRequestMssg("WAITING FOR APPROVAL")
     alert("Mail has been sent to the admin for approval");
+
+    localStorage.setItem("Request_Permission", "yes");
   };
 
   return (
@@ -219,7 +219,7 @@ const Box = ({
                   {loading ? (
                      <ScaleLoader color="#36d7b7" />
                   ) : (
-                    requestMssg
+                   localStorage.getItem("Request_Permission") != null ? "APPROVAL PENDING" : "REQUEST PERMISSION"
                   )}
                 </MDBBtn>
               </>
