@@ -39,6 +39,7 @@ function UserConsole() {
     fetchData();
   }, []);
 
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -58,11 +59,14 @@ function UserConsole() {
     setShowModal(true);
   };
 
+
   const upload = async () => {
     window.location.href = "http://localhost:8080/drive/googlesignin";
-    await axios.get("http://localhost:8080/drive/create/mktintumon@gmail.com");
-    alert("All files have been uploaded");
+
+    axios.get(`http://localhost:8080/drive/create/${email}`)
+    
   };
+
 
   const downloadPDF = async (fileName, username) => {
     try {
@@ -80,6 +84,7 @@ function UserConsole() {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      alert("file " + fileName + " Downloaded");
     } catch (error) {
       console.error("Error downloading PDF:", error);
     }
@@ -90,7 +95,7 @@ function UserConsole() {
   };
 
   const handleSendMail = (selectedUsers) => {
-    // console.log("Sending mail to selected users:", selectedUsers);
+    
   };
 
   return (

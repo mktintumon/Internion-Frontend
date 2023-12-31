@@ -3,12 +3,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles/residenceForm.css";
 import { useNavigate } from "react-router-dom";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 import axios from "axios";
- 
+
 const ResidenceForm = () => {
   const navigateTo = useNavigate();
- 
+
   // State variables for form fields
   const [name, setName] = useState("");
   const [ParentName, setParentName] = useState("");
@@ -18,17 +18,15 @@ const ResidenceForm = () => {
   const [placeOfRegister, setPlace] = useState("");
   const [date, setDate] = useState(new Date());
   const [docForVerification, setVerification] = useState("");
- 
-  const dateOfRegister = format(date, 'MM/dd/yyyy');
 
-  const emailData = localStorage.getItem("userEmail")
+  const dateOfRegister = format(date, "MM/dd/yyyy");
+
+  const emailData = localStorage.getItem("userEmail");
   const email = emailData.substring(1, emailData.length - 1);
-
- 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
+
     const formData = {
       name,
       ParentName,
@@ -38,41 +36,42 @@ const ResidenceForm = () => {
       placeOfRegister,
       dateOfRegister,
       docForVerification,
-      email:email
+      email: email,
     };
-   
-    // console.log("Form Data:", formData);
-    const response = await axios.post("http://localhost:8080/api/residenceform",{
-      name:name,
-      parent_name:ParentName,
-      village:village,
-      taluka:taluka,
-      district:district,
-      place_of_register:placeOfRegister,
-      date_of_register:dateOfRegister,
-      document_for_verify:docForVerification,
-      email:email
-    })
 
-    if(response.data === "added success"){
-      alert("Form submitted successfully!!!")
+    const response = await axios.post(
+      "http://localhost:8080/api/residenceform",
+      {
+        name: name,
+        parent_name: ParentName,
+        village: village,
+        taluka: taluka,
+        district: district,
+        place_of_register: placeOfRegister,
+        date_of_register: dateOfRegister,
+        document_for_verify: docForVerification,
+        email: email,
+      }
+    );
+
+    console.log(response.data);
+
+    if (response.data === "added success") {
+      alert("Form submitted successfully!!!");
+
+      setName("");
+      setParentName("");
+      setVillage("");
+      setTaluka("");
+      setDistrict("");
+      setPlace("");
+      setDate(new Date());
+      setVerification("");
+
+      navigateTo("/userConsole");
     }
-    else{
-      alert("Form Not submitted😒")
-    }
-
-    setName("")
-    setParentName("");
-    setVillage("")
-    setTaluka("")
-    setDistrict("")
-    setPlace("");
-    setDate(new Date())
-    setVerification("")
-
-    navigateTo("/userConsole");
   };
- 
+
   return (
     <div className="residence-form-container">
       <h2>Residence Certificate Form</h2>
@@ -219,6 +218,5 @@ const ResidenceForm = () => {
     </div>
   );
 };
- 
+
 export default ResidenceForm;
- 

@@ -25,7 +25,8 @@ export default function Verify() {
         const response = await axios.get(
           `http://localhost:8080/api/users/email/${email}`
         );
-        setVerify(true);
+        //console.log(response.data);
+        setVerify(response.data.verify_email);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }

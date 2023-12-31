@@ -28,7 +28,7 @@ function AdminConsole() {
     };
 
     fetchData();
-  }, []);
+  }, [rerender]);
 
   return (
     <>

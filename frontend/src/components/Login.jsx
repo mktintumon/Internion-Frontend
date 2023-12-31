@@ -72,7 +72,7 @@ const Login = () => {
         setEmail("");
         setPassword("");
         alert("Check your mail for verification Link");
-        navigate("/qrcode", { state: { emailData : email } });
+        navigate(`/verify/${email}`, { state: { emailData : email } });
       }
 
       if (response.data == "User already exist") {
@@ -165,7 +165,6 @@ const Login = () => {
     }
   }
 
-  console.log(recaptchaText.length);
 
   return (
     <div
