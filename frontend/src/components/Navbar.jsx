@@ -20,7 +20,7 @@ export default function Navbar() {
 
   const logout = () => {
     localStorage.clear();
-    navigateTo("/login");
+    navigateTo("/");
     window.location.reload();
   };
 

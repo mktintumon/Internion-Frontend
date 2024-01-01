@@ -40,7 +40,7 @@ const ResidenceForm = () => {
     };
 
     const response = await axios.post(
-      "http://localhost:8080/api/residenceform",
+      "https://formflow.int.cyraacs.in/api/residenceform",
       {
         name: name,
         parent_name: ParentName,

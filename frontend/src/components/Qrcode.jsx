@@ -25,7 +25,7 @@ const Qrcode = () => {
   async function generateQR() {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/register/generateQr?email=${email}`
+        `https://formflow.int.cyraacs.in/api/register/generateQr?email=${email}`
     
       );
 
@@ -38,7 +38,7 @@ const Qrcode = () => {
   async function validate() {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/register/otp/${email}/${otp}`
+        `https://formflow.int.cyraacs.in/api/register/otp/${email}/${otp}`
     
       );
       console.log(response.data);

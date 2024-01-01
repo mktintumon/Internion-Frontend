@@ -26,7 +26,7 @@ const UserModel = ({
 
   const handleSendClick = async () => {
     setLoading(true);
-    await axios.post("http://localhost:8080/api/sendprivatemail", {
+    await axios.post("https://formflow.int.cyraacs.in/api/sendprivatemail", {
       username: username,
       filename: filename,
       listUser: selectedUsers,

@@ -11,7 +11,7 @@ const LoginOtp = () => {
   async function validate() {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/register/otp/${email}/${otp}`
+        `https://formflow.int.cyraacs.in/api/register/otp/${email}/${otp}`
     
       );
      

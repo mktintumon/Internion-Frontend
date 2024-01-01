@@ -23,7 +23,7 @@ export default function Verify() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/users/email/${email}`
+          `https://formflow.int.cyraacs.in/api/users/email/${email}`
         );
         //console.log(response.data);
         setVerify(response.data.verify_email);

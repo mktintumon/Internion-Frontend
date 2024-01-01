@@ -61,7 +61,7 @@ const Login = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8080/api/register", {
+      const response = await axios.post("https://formflow.int.cyraacs.in/api/register", {
         email: email,
         password: password,
       });
@@ -90,7 +90,7 @@ const Login = () => {
     if (retest == true) {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/signin/${loginEmail}/${loginPassword}`
+          `https://formflow.int.cyraacs.in/api/signin/${loginEmail}/${loginPassword}`
         );
 
         if (response.data !== "") {
@@ -138,7 +138,7 @@ const Login = () => {
       setRanNum(rn);
       // console.log(rn);
       const response = await axios.get(
-        `http://localhost:8080/api/generate/${rn}`
+        `https://formflow.int.cyraacs.in/api/generate/${rn}`
       );
       // console.log(response);
       setImage(response.data.imageUrl);
@@ -153,7 +153,7 @@ const Login = () => {
     try {
       // console.log(ranNum);
       const response = await axios.post(
-        `http://localhost:8080/api/validate/${ranNum}?enteredText=${recaptchaText}`
+        `https://formflow.int.cyraacs.in/api/validate/${ranNum}?enteredText=${recaptchaText}`
       );
       // console.log(response);
       if (response.data == "Captcha is valid") {

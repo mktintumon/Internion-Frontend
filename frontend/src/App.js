@@ -11,7 +11,7 @@ import LoginOtp from "./components/LoginOtp";
 import Verify from "./components/Verify";
 import AdminConsole from "./components/AdminConsole";
 import UserConsole from "./components/UserConsole";
-import { useState } from "react";
+import { useState  , useEffect } from "react";
 import Landing from "./components/Landing";
 
 function App() {

@@ -17,7 +17,7 @@ function AdminConsole() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/getallusers"
+          "https://formflow.int.cyraacs.in/api/getallusers"
         );
 
         setData(response.data);
@@ -83,7 +83,7 @@ function AdminConsole() {
 
 const Box = ({ email, filename, permission }) => {
   const approve = async () => {
-    await axios.get(`http://localhost:8080/api/grantpermission/${filename}`);
+    await axios.get(`https://formflow.int.cyraacs.in/api/grantpermission/${filename}`);
   };
   return (
     <>

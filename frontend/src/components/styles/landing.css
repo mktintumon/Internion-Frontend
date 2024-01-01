@@ -1,0 +1,38 @@
+.formify-container {
+    text-align: center;
+    padding: 50px;
+    background: url("../../../public/background.jpg") center/cover no-repeat; 
+    color: #fff;
+    height: 100;
+    height: 100vh;
+  }
+  
+
+  .formify-header {
+    margin-bottom: 30px;
+  }
+  
+  .formify-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .feature {
+    max-width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(3, 10, 10, 0.5); 
+  }
+  
+  .feature h2 {
+    color: #333; 
+  }
+  
+  .feature p {
+    margin-top: 2rem;
+    color: #555; 
+  }
+  

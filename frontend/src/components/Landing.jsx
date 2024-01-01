@@ -1,40 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "./styles/landing.css";
 
-function LandingPage() {
+const Landing = () => {
   return (
-    <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          backgroundColor: "whitesmoke",
-        }}
-      >
-        
-        
-        <img
-          src="/logo.png"
-          alt="logo"
-          style={{ height: "10rem", borderRadius: "4rem", marginBottom: "2rem" }}
-        />
-        {localStorage.getItem("userId") != null ? (
-          <Link to="/home" style={{ textDecoration: "none" }}>
-            <h3 style={{ color: "whitesmoke" }}>
-              <u></u>
-            </h3>
-          </Link>
-        ) : (
-          <h3 style={{ color: "black" }}>
-            Please Login / Register to Explore...
-          </h3>
-        )}
-      </div>
-    </>
-  );
-}
+    <div className="formify-container">
+      <header className="formify-header">
+        <img src="/logoMain.png" width="400rem" alt="" />
+        <p style={{color:"black",fontSize:"1.5rem",marginTop:"1.5rem"}}>The ultimate solution for seamless form management</p>
+      </header>
 
-export default LandingPage;
+      <div><h2 style={{color:"black",marginTop:"4rem"}}>Let's dive into our features</h2></div>
+      <section className="formify-features">
+        <div className="feature">
+          <h2>Simlified Form Filling</h2>
+          <p>
+          Glide through the journey of unparalleled simplicity with our crafted
+            UI.
+          </p>
+        </div>
+
+        <div className="feature">
+          <h2>Fortified Protection</h2>
+          <p>
+            Advanced security with Multi-Factor Authentication, captcha ,
+            email verification, and PDF passwords.
+          </p>
+        </div>
+
+        <div className="feature">
+          <h2>Dashboard Management</h2>
+          <p>Effortlessly manage your dashboards for a seamless experience.</p>
+        </div>
+
+        <div className="feature">
+          <h2>Form & PDF Management</h2>
+          <p>Send , upload, download PDFs with ease and magic with security features.</p>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Landing;

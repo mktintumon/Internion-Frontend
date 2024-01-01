@@ -26,7 +26,7 @@ function UserConsole() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/getfilebyemail/${email}`
+          `https://formflow.int.cyraacs.in/api/getfilebyemail/${email}`
         );
 
         setData(response.data);
@@ -43,7 +43,7 @@ function UserConsole() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/getdata");
+        const response = await axios.get("https://formflow.int.cyraacs.in/api/getdata");
         setUsers(response.data);
 
         // console.log(response.data);
@@ -61,9 +61,9 @@ function UserConsole() {
 
 
   const upload = async () => {
-    window.location.href = "http://localhost:8080/drive/googlesignin";
+    window.location.href = "https://formflow.int.cyraacs.in/drive/googlesignin";
 
-    axios.get(`http://localhost:8080/drive/create/${email}`)
+    axios.get(`https://formflow.int.cyraacs.in/drive/create/${email}`)
     
   };
 
@@ -71,7 +71,7 @@ function UserConsole() {
   const downloadPDF = async (fileName, username) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/download?fileName=${fileName}&username=${username}`,
+        `https://formflow.int.cyraacs.in/api/download?fileName=${fileName}&username=${username}`,
         {
           responseType: "blob",
         }
@@ -172,7 +172,7 @@ const Box = ({
   const request = async () => {
     setLoading(true);
 
-    await axios.post("http://localhost:8080/api/approveuserpermission", {
+    await axios.post("https://formflow.int.cyraacs.in/api/approveuserpermission", {
       sender: username,
       filename: filename,
     });
