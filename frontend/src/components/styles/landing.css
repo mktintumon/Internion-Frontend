@@ -3,11 +3,10 @@
     padding: 50px;
     background: url("../../../public/background.jpg") center/cover no-repeat; 
     color: #fff;
-    height: 100;
-    height: 100vh;
+    /* height: 100%; */
+    overflow-y: hidden;
   }
   
-
   .formify-header {
     margin-bottom: 30px;
   }

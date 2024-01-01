@@ -5,7 +5,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
-    width: 850px;
+    width: 80%;
     max-width: 100%;
     min-height: 500px;
     display: flex;
@@ -14,9 +14,7 @@
     flex-direction: column;
     height: 80vh;
     font-size: 18px;
-   
     margin: 50px auto;
- 
   }
  
   .container p {

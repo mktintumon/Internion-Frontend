@@ -5,7 +5,7 @@ const Landing = () => {
   return (
     <div className="formify-container">
       <header className="formify-header">
-        <img src="/logoMain.png" width="400rem" alt="" />
+        <img src="/logoMain.png" width="30%" alt="" />
         <p style={{color:"black",fontSize:"1.5rem",marginTop:"1.5rem"}}>The ultimate solution for seamless form management</p>
       </header>
 

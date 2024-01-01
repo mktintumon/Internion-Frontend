@@ -32,15 +32,39 @@ function AdminConsole() {
 
   return (
     <>
-      <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
-        Admin Dashboard
-      </h2>
-      <div >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          gap: "5rem",
+        }}
+      >
+        <div>
+          <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
+            Admin Dashboard
+          </h2>
+        </div>
+        <div>
+        <a href="https://analytics.google.com/analytics/web/#/p421013810/realtime/overview?params=_u..nav%3Dmaui&collectionId=life-cycle" target="_blank" rel="noopener noreferrer">
+          <MDBBtn
+            className="text mb-1"
+            color="primary"
+            rounded
+            style={{ fontSize: "1rem", marginTop: "2rem" }}
+          >
+            Go to Google Analytics
+          </MDBBtn>
+          </a>
+        </div>
+      </div>
+
+      <div>
         <MDBTable
           style={{
             marginTop: "2rem",
             width: "80%",
-            marginLeft: "13rem",
+            marginLeft: "10rem",
             fontSize: "1.2rem",
           }}
           align="middle"
@@ -83,7 +107,9 @@ function AdminConsole() {
 
 const Box = ({ email, filename, permission }) => {
   const approve = async () => {
-    await axios.get(`https://formflow.int.cyraacs.in/api/grantpermission/${filename}`);
+    await axios.get(
+      `https://formflow.int.cyraacs.in/api/grantpermission/${filename}`
+    );
   };
   return (
     <>
@@ -99,10 +125,7 @@ const Box = ({ email, filename, permission }) => {
               color="link"
               rounded
             >
-              <MDBBadge
-                pill
-                color={permission == 0 ? "warning" : "success"}
-              >
+              <MDBBadge pill color={permission == 0 ? "warning" : "success"}>
                 {permission == 0 ? "Pending" : "Approved"}
               </MDBBadge>
             </MDBBtn>
