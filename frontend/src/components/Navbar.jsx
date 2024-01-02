@@ -42,6 +42,8 @@ export default function Navbar() {
               ></img>
             </Button>
           </Typography>
+
+
           {isloggedIn && location.pathname !== "/login" && location.pathname !== "/home" && (
             <Button color="inherit" onClick={() => navigateTo("/home")}>
               FILL FORM

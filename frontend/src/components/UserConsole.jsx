@@ -64,10 +64,8 @@ function UserConsole() {
     window.location.href = "https://formflow.int.cyraacs.in/drive/googlesignin";
 
     axios.get(`https://formflow.int.cyraacs.in/drive/create/${email}`)
-    
   };
-
-
+  
   const downloadPDF = async (fileName, username) => {
     try {
       const response = await axios.get(
