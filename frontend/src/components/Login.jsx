@@ -61,17 +61,20 @@ const Login = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("https://formflow.int.cyraacs.in/api/register", {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post(
+        "https://formflow.int.cyraacs.in/api/register",
+        {
+          email: email,
+          password: password,
+        }
+      );
 
       if (response.data == "success") {
         handleToggle();
         setEmail("");
         setPassword("");
         alert("Check your mail for verification Link");
-        navigate(`/verify/${email}`, { state: { emailData : email } });
+        navigate(`/verify/${email}`, { state: { emailData: email } });
       }
 
       if (response.data == "User already exist") {
@@ -164,12 +167,16 @@ const Login = () => {
     }
   }
 
-
   return (
+    <>
+     <div className="open-in-laptop-message">
+        <h4>Please open this page on a laptop for the best experience.</h4>
+      </div>
     <div
       className={`container ${isSignUpActive ? "active" : ""}`}
       id="container"
     >
+
       <div
         className={`form-container ${isSignUpActive ? "sign-up" : "sign-in"}`}
       >
@@ -237,7 +244,7 @@ const Login = () => {
                 style={{ margin: "auto 10px", fontSize: "30px" }}
                 onClick={() => setTest(!test)}
               ></CachedIcon>
-              
+
               {recaptchaText.toString().length === 4 && (
                 <input
                   style={{ margin: "auto 10px", width: "30px", height: "30px" }}
@@ -266,9 +273,7 @@ const Login = () => {
 
             {recaptchaText.toString().length === 4 && (
               <div style={{ marginTop: "20px" }} onClick={validate}>
-                <button type="button">
-                  Check
-                </button>
+                <button type="button">Check</button>
               </div>
             )}
 
@@ -306,6 +311,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
